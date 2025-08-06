@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="cv_template5" pageWidth="595" pageHeight="842" columnWidth="595"
+              leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+
+
+    <style name="HeaderNameStyle" fontSize="22" isBold="true" forecolor="#1A2526"/>
+    <style name="HeaderSubtitleStyle" fontSize="12" isBold="true" forecolor="#4A5859"/>
+    <style name="HeaderContactStyle" fontSize="9" forecolor="#666666"/>
+    <style name="SectionHeaderStyle" fontSize="13" isBold="true" forecolor="#1A2526" backcolor="#E8ECEF" mode="Opaque" pdfFontName="Helvetica-Bold"/>
+    <style name="BodyText" fontSize="9" forecolor="#333333" pdfFontName="Helvetica"/>
+    <style name="CompanyStyle" fontSize="11" isBold="true" forecolor="#1A2526"/>
+    <style name="TitleStyle" fontSize="9" forecolor="#333333"/>
+    <style name="DateStyle" fontSize="9" isItalic="true" forecolor="#666666"/>
+    <style name="BulletStyle" fontSize="9" forecolor="#333333" lineSpacing="1_1_2"/>
+
+
+    <parameter name="name" class="java.lang.String"/>
+    <parameter name="professionalTitle" class="java.lang.String"/>
+    <parameter name="email" class="java.lang.String"/>
+    <parameter name="phone" class="java.lang.String"/>
+    <parameter name="address" class="java.lang.String"/>
+    <parameter name="profile" class="java.lang.String"/>
+    <parameter name="company1" class="java.lang.String"/>
+    <parameter name="position1" class="java.lang.String"/>
+    <parameter name="dates1" class="java.lang.String"/>
+    <parameter name="achievements1" class="java.lang.String"/>
+    <parameter name="company2" class="java.lang.String"/>
+    <parameter name="position2" class="java.lang.String"/>
+    <parameter name="dates2" class="java.lang.String"/>
+    <parameter name="achievements2" class="java.lang.String"/>
+    <parameter name="university1" class="java.lang.String"/>
+    <parameter name="degree1" class="java.lang.String"/>
+    <parameter name="year1" class="java.lang.String"/>
+    <parameter name="diploma" class="java.lang.String"/>
+    <parameter name="skills" class="java.lang.String"/>
+
+
+    <title>
+        <band height="80">
+            <textField>
+                <reportElement x="15" y="0" width="565" height="28" style="HeaderNameStyle"/>
+                <textElement verticalAlignment="Middle" textAlignment="Left"/>
+                <textFieldExpression><![CDATA[$P{name}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="15" y="28" width="565" height="18" style="HeaderSubtitleStyle"/>
+                <textElement verticalAlignment="Middle" textAlignment="Left"/>
+                <textFieldExpression><![CDATA[$P{professionalTitle}]]></textFieldExpression>
+            </textField>
+            <!-- Two-column contact info -->
+            <textField>
+                <reportElement x="15" y="46" width="282" height="18" style="HeaderContactStyle"/>
+                <textElement verticalAlignment="Middle" textAlignment="Left"/>
+                <textFieldExpression><![CDATA[
+                    ($P{address} != null && !$P{address}.trim().equals("") ? $P{address} : "") +
+                    ($P{phone} != null && !$P{phone}.trim().equals("") ? " | " + $P{phone} : "")
+                ]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="298" y="46" width="282" height="18" style="HeaderContactStyle"/>
+                <textElement verticalAlignment="Middle" textAlignment="Right"/>
+                <textFieldExpression><![CDATA[$P{email}]]></textFieldExpression>
+            </textField>
+
+            <line>
+                <reportElement x="0" y="70" width="595" height="1"/>
+                <graphicElement>
+                    <pen lineWidth="1.0" lineColor="#CCCCCC"/>
+                </graphicElement>
+            </line>
+        </band>
+    </title>
+
+
+    <detail>
+        <band height="620" splitType="Stretch">
+
+            <staticText>
+                <reportElement x="0" y="0" width="595" height="20" style="SectionHeaderStyle"/>
+                <textElement verticalAlignment="Middle" textAlignment="Left" />
+                <text>     PROFILE</text>
+            </staticText>
+            <line>
+                <reportElement x="0" y="20" width="595" height="1"/>
+                <graphicElement>
+                    <pen lineWidth="0.75" lineColor="#CCCCCC"/>
+                </graphicElement>
+            </line>
+            <textField isStretchWithOverflow="true">
+                <reportElement x="15" y="25" width="565" height="60" style="BodyText"/>
+                <textElement verticalAlignment="Top" lineSpacing="1_1_2"/>
+                <textFieldExpression><![CDATA[$P{profile}]]></textFieldExpression>
+            </textField>
+
+
+            <staticText>
+                <reportElement x="0" y="90" width="595" height="20" style="SectionHeaderStyle"/>
+                <textElement verticalAlignment="Middle" textAlignment="Left" />
+                <text>     EXPERIENCE</text>
+            </staticText>
+            <line>
+                <reportElement x="0" y="110" width="595" height="1"/>
+                <graphicElement>
+                    <pen lineWidth="0.75" lineColor="#CCCCCC"/>
+                </graphicElement>
+            </line>
+            <!-- First Experience -->
+            <textField>
+                <reportElement x="15" y="115" width="565" height="20" style="CompanyStyle"/>
+                <textElement verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA[$P{company1}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="15" y="135" width="565" height="18" style="TitleStyle"/>
+                <textElement verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA[$P{position1}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="15" y="153" width="565" height="18" style="DateStyle"/>
+                <textElement verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA[$P{dates1}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true">
+                <reportElement x="25" y="171" width="555" height="80" style="BulletStyle"/>
+                <textElement verticalAlignment="Top" lineSpacing="1_1_2"/>
+                <textFieldExpression><![CDATA[$P{achievements1} != null ? "• " + $P{achievements1}.replaceAll("\\n", "\n• ") : ""]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="15" y="255" width="565" height="20" style="CompanyStyle"/>
+                <textElement verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA[$P{company2}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="15" y="275" width="565" height="18" style="TitleStyle"/>
+                <textElement verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA[$P{position2}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="15" y="293" width="565" height="18" style="DateStyle"/>
+                <textElement verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA[$P{dates2}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true">
+                <reportElement x="25" y="311" width="555" height="80" style="BulletStyle"/>
+                <textElement verticalAlignment="Top" lineSpacing="1_1_2"/>
+                <textFieldExpression><![CDATA[$P{achievements2} != null ? "• " + $P{achievements2}.replaceAll("\\n", "\n• ") : ""]]></textFieldExpression>
+            </textField>
+
+
+            <staticText>
+                <reportElement x="0" y="395" width="595" height="20" style="SectionHeaderStyle"/>
+                <textElement verticalAlignment="Middle" textAlignment="Left" />
+                <text>     EDUCATION</text>
+            </staticText>
+            <line>
+                <reportElement x="0" y="415" width="595" height="1"/>
+                <graphicElement>
+                    <pen lineWidth="0.75" lineColor="#CCCCCC"/>
+                </graphicElement>
+            </line>
+            <textField>
+                <reportElement x="15" y="420" width="565" height="20" style="CompanyStyle"/>
+                <textElement verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA[$P{university1}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="15" y="440" width="565" height="18" style="TitleStyle"/>
+                <textElement verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA[$P{degree1}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="15" y="458" width="565" height="18" style="DateStyle"/>
+                <textElement verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA[$P{year1}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="15" y="476" width="565" height="18" style="BodyText"/>
+                <textElement verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA["Diploma: " + $P{diploma}]]></textFieldExpression>
+            </textField>
+
+
+            <staticText>
+                <reportElement x="0" y="500" width="595" height="20" style="SectionHeaderStyle"/>
+                <textElement verticalAlignment="Middle" textAlignment="Left" />
+                <text>     SKILLS</text>
+            </staticText>
+            <line>
+                <reportElement x="0" y="520" width="595" height="1"/>
+                <graphicElement>
+                    <pen lineWidth="0.75" lineColor="#CCCCCC"/>
+                </graphicElement>
+            </line>
+            <textField isStretchWithOverflow="true">
+                <reportElement x="25" y="525" width="555" height="80" style="BulletStyle"/>
+                <textElement verticalAlignment="Top" lineSpacing="1_1_2"/>
+                <textFieldExpression><![CDATA[$P{skills} != null ? "• " + $P{skills}.replaceAll(",\\s*", "\n• ") : ""]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>
