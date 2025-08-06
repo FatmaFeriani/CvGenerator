@@ -4,8 +4,6 @@
               xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
               name="cv_template5" pageWidth="595" pageHeight="842" columnWidth="595"
               leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
-
-
     <style name="HeaderNameStyle" fontSize="22" isBold="true" forecolor="#1A2526"/>
     <style name="HeaderSubtitleStyle" fontSize="12" isBold="true" forecolor="#4A5859"/>
     <style name="HeaderContactStyle" fontSize="9" forecolor="#666666"/>
@@ -15,8 +13,6 @@
     <style name="TitleStyle" fontSize="9" forecolor="#333333"/>
     <style name="DateStyle" fontSize="9" isItalic="true" forecolor="#666666"/>
     <style name="BulletStyle" fontSize="9" forecolor="#333333" lineSpacing="1_1_2"/>
-
-
     <parameter name="name" class="java.lang.String"/>
     <parameter name="professionalTitle" class="java.lang.String"/>
     <parameter name="email" class="java.lang.String"/>
@@ -34,10 +30,12 @@
     <parameter name="university1" class="java.lang.String"/>
     <parameter name="degree1" class="java.lang.String"/>
     <parameter name="year1" class="java.lang.String"/>
-    <parameter name="diploma" class="java.lang.String"/>
+    <parameter name="diploma1" class="java.lang.String"/>
+    <parameter name="university2" class="java.lang.String"/>
+    <parameter name="degree2" class="java.lang.String"/>
+    <parameter name="year2" class="java.lang.String"/>
+    <parameter name="diploma2" class="java.lang.String"/>
     <parameter name="skills" class="java.lang.String"/>
-
-
     <title>
         <band height="80">
             <textField>
@@ -50,7 +48,6 @@
                 <textElement verticalAlignment="Middle" textAlignment="Left"/>
                 <textFieldExpression><![CDATA[$P{professionalTitle}]]></textFieldExpression>
             </textField>
-            <!-- Two-column contact info -->
             <textField>
                 <reportElement x="15" y="46" width="282" height="18" style="HeaderContactStyle"/>
                 <textElement verticalAlignment="Middle" textAlignment="Left"/>
@@ -64,7 +61,6 @@
                 <textElement verticalAlignment="Middle" textAlignment="Right"/>
                 <textFieldExpression><![CDATA[$P{email}]]></textFieldExpression>
             </textField>
-
             <line>
                 <reportElement x="0" y="70" width="595" height="1"/>
                 <graphicElement>
@@ -73,14 +69,11 @@
             </line>
         </band>
     </title>
-
-
     <detail>
-        <band height="620" splitType="Stretch">
-
+        <band height="762" splitType="Stretch">
             <staticText>
                 <reportElement x="0" y="0" width="595" height="20" style="SectionHeaderStyle"/>
-                <textElement verticalAlignment="Middle" textAlignment="Left" />
+                <textElement verticalAlignment="Middle" textAlignment="Left"/>
                 <text>     PROFILE</text>
             </staticText>
             <line>
@@ -94,11 +87,9 @@
                 <textElement verticalAlignment="Top" lineSpacing="1_1_2"/>
                 <textFieldExpression><![CDATA[$P{profile}]]></textFieldExpression>
             </textField>
-
-
             <staticText>
                 <reportElement x="0" y="90" width="595" height="20" style="SectionHeaderStyle"/>
-                <textElement verticalAlignment="Middle" textAlignment="Left" />
+                <textElement verticalAlignment="Middle" textAlignment="Left"/>
                 <text>     EXPERIENCE</text>
             </staticText>
             <line>
@@ -107,7 +98,6 @@
                     <pen lineWidth="0.75" lineColor="#CCCCCC"/>
                 </graphicElement>
             </line>
-            <!-- First Experience -->
             <textField>
                 <reportElement x="15" y="115" width="565" height="20" style="CompanyStyle"/>
                 <textElement verticalAlignment="Top"/>
@@ -128,7 +118,6 @@
                 <textElement verticalAlignment="Top" lineSpacing="1_1_2"/>
                 <textFieldExpression><![CDATA[$P{achievements1} != null ? "• " + $P{achievements1}.replaceAll("\\n", "\n• ") : ""]]></textFieldExpression>
             </textField>
-
             <textField>
                 <reportElement x="15" y="255" width="565" height="20" style="CompanyStyle"/>
                 <textElement verticalAlignment="Top"/>
@@ -149,11 +138,9 @@
                 <textElement verticalAlignment="Top" lineSpacing="1_1_2"/>
                 <textFieldExpression><![CDATA[$P{achievements2} != null ? "• " + $P{achievements2}.replaceAll("\\n", "\n• ") : ""]]></textFieldExpression>
             </textField>
-
-
             <staticText>
                 <reportElement x="0" y="395" width="595" height="20" style="SectionHeaderStyle"/>
-                <textElement verticalAlignment="Middle" textAlignment="Left" />
+                <textElement verticalAlignment="Middle" textAlignment="Left"/>
                 <text>     EDUCATION</text>
             </staticText>
             <line>
@@ -180,23 +167,41 @@
             <textField>
                 <reportElement x="15" y="476" width="565" height="18" style="BodyText"/>
                 <textElement verticalAlignment="Top"/>
-                <textFieldExpression><![CDATA["Diploma: " + $P{diploma}]]></textFieldExpression>
+                <textFieldExpression><![CDATA["Diploma: " + $P{diploma1}]]></textFieldExpression>
             </textField>
-
-
+            <textField>
+                <reportElement x="15" y="494" width="565" height="20" style="CompanyStyle"/>
+                <textElement verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA[$P{university2}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="15" y="514" width="565" height="18" style="TitleStyle"/>
+                <textElement verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA[$P{degree2}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="15" y="532" width="565" height="18" style="DateStyle"/>
+                <textElement verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA[$P{year2}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="15" y="550" width="565" height="18" style="BodyText"/>
+                <textElement verticalAlignment="Top"/>
+                <textFieldExpression><![CDATA["Diploma: " + $P{diploma2}]]></textFieldExpression>
+            </textField>
             <staticText>
-                <reportElement x="0" y="500" width="595" height="20" style="SectionHeaderStyle"/>
-                <textElement verticalAlignment="Middle" textAlignment="Left" />
+                <reportElement x="0" y="570" width="595" height="20" style="SectionHeaderStyle"/>
+                <textElement verticalAlignment="Middle" textAlignment="Left"/>
                 <text>     SKILLS</text>
             </staticText>
             <line>
-                <reportElement x="0" y="520" width="595" height="1"/>
+                <reportElement x="0" y="590" width="595" height="1"/>
                 <graphicElement>
                     <pen lineWidth="0.75" lineColor="#CCCCCC"/>
                 </graphicElement>
             </line>
             <textField isStretchWithOverflow="true">
-                <reportElement x="25" y="525" width="555" height="80" style="BulletStyle"/>
+                <reportElement x="25" y="595" width="555" height="80" style="BulletStyle"/>
                 <textElement verticalAlignment="Top" lineSpacing="1_1_2"/>
                 <textFieldExpression><![CDATA[$P{skills} != null ? "• " + $P{skills}.replaceAll(",\\s*", "\n• ") : ""]]></textFieldExpression>
             </textField>

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cv_template4" pageWidth="595" pageHeight="842" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="10">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="cv_template4" pageWidth="595" pageHeight="842" columnWidth="595"
+              leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="10">
+
     <style name="HeaderNameStyle" fontSize="26" isBold="true" forecolor="#1A1A1A" vAlign="Middle" hTextAlign="Center"/>
     <style name="HeaderSubtitleStyle" fontSize="14" isBold="false" forecolor="#4A4A4A" hTextAlign="Center"/>
     <style name="HeaderContactStyle" fontSize="9" isBold="false" forecolor="#6A6A6A" hTextAlign="Center"/>
@@ -28,7 +33,11 @@
     <parameter name="university1" class="java.lang.String"/>
     <parameter name="degree1" class="java.lang.String"/>
     <parameter name="year1" class="java.lang.String"/>
-    <parameter name="diploma" class="java.lang.String"/>
+    <parameter name="diploma1" class="java.lang.String"/>
+    <parameter name="university2" class="java.lang.String"/>
+    <parameter name="degree2" class="java.lang.String"/>
+    <parameter name="year2" class="java.lang.String"/>
+    <parameter name="diploma2" class="java.lang.String"/>
     <parameter name="skills" class="java.lang.String"/>
 
     <background>
@@ -73,7 +82,7 @@
     </title>
 
     <detail>
-        <band height="650" splitType="Stretch">
+        <band height="720" splitType="Stretch">
             <rectangle radius="6">
                 <reportElement x="0" y="0" width="595" height="20" backcolor="#F2F3F5"/>
                 <graphicElement>
@@ -162,6 +171,7 @@
                     <pen lineWidth="0.6" lineColor="#2A665A"/>
                 </graphicElement>
             </line>
+
             <textField>
                 <reportElement x="30" y="390" width="535" height="20" style="CompanyStyle"/>
                 <textFieldExpression><![CDATA[$P{university1}]]></textFieldExpression>
@@ -176,27 +186,44 @@
             </textField>
             <textField>
                 <reportElement x="30" y="450" width="535" height="16" style="BodyText"/>
-                <textFieldExpression><![CDATA["Major: " + $P{diploma}]]></textFieldExpression>
+                <textFieldExpression><![CDATA["Major: " + $P{diploma1}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="30" y="475" width="535" height="20" style="CompanyStyle"/>
+                <textFieldExpression><![CDATA[$P{university2}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="30" y="495" width="535" height="18" style="DateStyle"/>
+                <textFieldExpression><![CDATA[$P{year2}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="30" y="515" width="535" height="18" style="TitleStyle"/>
+                <textFieldExpression><![CDATA[$P{degree2}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="30" y="535" width="535" height="16" style="BodyText"/>
+                <textFieldExpression><![CDATA["Major: " + $P{diploma2}]]></textFieldExpression>
             </textField>
 
             <rectangle radius="6">
-                <reportElement x="0" y="475" width="595" height="20" backcolor="#F2F3F5"/>
+                <reportElement x="0" y="560" width="595" height="20" backcolor="#F2F3F5"/>
                 <graphicElement>
                     <pen lineWidth="0.4" lineColor="#C0C0C0"/>
                 </graphicElement>
             </rectangle>
             <staticText>
-                <reportElement x="30" y="475" width="535" height="20" style="SectionHeaderStyle"/>
+                <reportElement x="30" y="560" width="535" height="20" style="SectionHeaderStyle"/>
                 <text><![CDATA[CORE COMPETENCIES]]></text>
             </staticText>
             <line>
-                <reportElement x="0" y="498" width="595" height="1"/>
+                <reportElement x="0" y="583" width="595" height="1"/>
                 <graphicElement>
                     <pen lineWidth="0.6" lineColor="#2A665A"/>
                 </graphicElement>
             </line>
             <textField isStretchWithOverflow="true">
-                <reportElement x="30" y="510" width="535" height="70" style="BulletStyle"/>
+                <reportElement x="30" y="595" width="535" height="70" style="BulletStyle"/>
                 <textFieldExpression><![CDATA[$P{skills} != null ? "• " + $P{skills}.replaceAll(",\\s*", "\n• ") : ""]]></textFieldExpression>
             </textField>
         </band>

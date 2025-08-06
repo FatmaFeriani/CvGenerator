@@ -22,7 +22,12 @@ public class CvData {
     private String university1;
     private String degree1;
     private String year1;
-    private String diploma;
+    private String diploma1;
+
+    private String university2;
+    private String degree2;
+    private String year2;
+    private String diploma2;
 
     private String skills;
 
@@ -88,8 +93,20 @@ public class CvData {
     public String getYear1() { return year1; }
     public void setYear1(String year1) { this.year1 = year1; }
 
-    public String getDiploma() { return diploma; }
-    public void setDiploma(String diploma) { this.diploma = diploma; }
+    public String getDiploma1() { return diploma1; }
+    public void setDiploma1(String diploma1) { this.diploma1 = diploma1; }
+
+    public String getUniversity2() { return university2; }
+    public void setUniversity2(String university2) { this.university2 = university2; }
+
+    public String getDegree2() { return degree2; }
+    public void setDegree2(String degree2) { this.degree2 = degree2; }
+
+    public String getYear2() { return year2; }
+    public void setYear2(String year2) { this.year2 = year2; }
+
+    public String getDiploma2() { return diploma2; }
+    public void setDiploma2(String diploma2) { this.diploma2 = diploma2; }
 
     public String getSkills() { return skills; }
     public void setSkills(String skills) { this.skills = skills; }

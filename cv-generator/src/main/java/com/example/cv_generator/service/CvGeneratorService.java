@@ -12,7 +12,6 @@ public class CvGeneratorService {
 
     private final Map<String, JasperReport> jasperTemplates;
 
-
     public CvGeneratorService(Map<String, JasperReport> jasperTemplates) {
         this.jasperTemplates = jasperTemplates;
     }
@@ -46,7 +45,12 @@ public class CvGeneratorService {
         parameters.put("university1", safeValue(cvData.getUniversity1()));
         parameters.put("degree1", safeValue(cvData.getDegree1()));
         parameters.put("year1", safeValue(cvData.getYear1()));
-        parameters.put("diploma", safeValue(cvData.getDiploma()));
+        parameters.put("diploma1", safeValue(cvData.getDiploma1()));
+
+        parameters.put("university2", safeValue(cvData.getUniversity2()));
+        parameters.put("degree2", safeValue(cvData.getDegree2()));
+        parameters.put("year2", safeValue(cvData.getYear2()));
+        parameters.put("diploma2", safeValue(cvData.getDiploma2()));
 
         parameters.put("skills", safeValue(cvData.getSkills()));
 
