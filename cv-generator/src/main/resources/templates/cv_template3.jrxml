@@ -186,7 +186,7 @@
             </textField>
             <textField>
                 <reportElement x="30" y="450" width="535" height="16" style="BodyText"/>
-                <textFieldExpression><![CDATA["Major: " + $P{diploma1}]]></textFieldExpression>
+                <textFieldExpression><![CDATA["Diploma: " + $P{diploma1}]]></textFieldExpression>
             </textField>
 
             <textField>
@@ -203,7 +203,7 @@
             </textField>
             <textField>
                 <reportElement x="30" y="535" width="535" height="16" style="BodyText"/>
-                <textFieldExpression><![CDATA["Major: " + $P{diploma2}]]></textFieldExpression>
+                <textFieldExpression><![CDATA["Diploma: " + $P{diploma2}]]></textFieldExpression>
             </textField>
 
             <rectangle radius="6">

@@ -18,15 +18,26 @@ public class JasperConfig {
         Map<String, JasperReport> templates = new HashMap<>();
 
 
-        String[] templateNames = {"cv_template1", "cv_template2", "cv_template3","cv_template4"};
+        String[] templateNames = {
+                "cv_template1",
+                "cv_template2",
+                "cv_template3",
+                "cv_template4",
+                "cv_template5"
+        };
 
         for (String name : templateNames) {
             String path = "templates/" + name + ".jrxml";
+
             try (InputStream inputStream = new ClassPathResource(path).getInputStream()) {
-                templates.put(name, JasperCompileManager.compileReport(inputStream));
+                JasperReport report = JasperCompileManager.compileReport(inputStream);
+                templates.put(name, report);
+                System.out.println("Compiled template: " + name);
+            } catch (Exception e) {
+                System.err.println("Failed to load or compile template '" + name + "': " + e.getMessage());
+
             }
         }
-
 
         return templates;
     }

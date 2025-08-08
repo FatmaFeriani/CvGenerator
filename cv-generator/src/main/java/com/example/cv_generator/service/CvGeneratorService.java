@@ -17,7 +17,6 @@ public class CvGeneratorService {
     }
 
     public byte[] generateCvPdf(CvData cvData, String templateName) throws Exception {
-
         JasperReport jasperReport = jasperTemplates.get(templateName);
 
         if (jasperReport == null) {
