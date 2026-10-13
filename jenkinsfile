@@ -1,0 +1,34 @@
+```groovy
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout SCM') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Check Java and Maven') {
+            steps {
+                sh '''
+                    java -version
+                    javac -version
+                    mvn -version
+                '''
+            }
+        }
+
+        stage('Inspect project') {
+            steps {
+                sh '''
+                    echo "=== Project files ==="
+                    ls -la
+                    echo "=== Maven files ==="
+                    find . -name pom.xml -type f
+                '''
+            }
+        }
+    }
+}
+```
